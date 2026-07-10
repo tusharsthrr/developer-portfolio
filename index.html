@@ -1,0 +1,1097 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Portfolio of Tushar Kumar Suthar, BCA student and aspiring software developer focused on web projects, cinematic edits, and mobile-first digital experiences.">
+  <title>Tushar Kumar Suthar | Portfolio</title>
+  <link rel="icon" type="image/png" href="wp15370737-silver-surfer-pc-4k-wallpapers.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,400;1,600;1,700&family=Dancing+Script:wght@700&family=Inter:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&family=Sora:wght@500;600;700;800&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="is-loading">
+  <!-- Top Scroll Progress Indicator -->
+  <div class="scroll-progress" aria-hidden="true"></div>
+  <canvas id="scene" aria-hidden="true"></canvas>
+  <div class="blob-container" aria-hidden="true">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+  </div>
+  <div class="custom-cursor" aria-hidden="true">
+    <div class="cursor-dot"></div>
+    <div class="cursor-ring"></div>
+  </div>
+  <div class="loading-screen" aria-live="polite" aria-label="Welcome preloader">
+    <div class="loader-content">
+      <h2 class="loader-welcome">Welcome, Tushar.</h2>
+      <div class="loader-status-container">
+        <span class="loader-status-text">Crafting Your Experience...</span>
+      </div>
+    </div>
+
+    <div class="loader-progress-wrap">
+      <span class="loader-percentage">0%</span>
+      <div class="loader-progress-bar">
+        <div class="loader-progress-fill"></div>
+      </div>
+      <div class="loader-breathing-glow"></div>
+    </div>
+  </div>
+
+  <a href="#home" class="fixed-pfp" aria-label="Scroll to top">
+    <svg viewBox="0 0 24 24">
+      <path d="M12 19V5M5 12l7-7 7 7" stroke-linecap="round" stroke-linejoin="round" />
+    </svg>
+  </a>
+  <div class="certificate-zoom" hidden>
+    <div class="certificate-zoom-card">
+      <button class="certificate-zoom-close" type="button" aria-label="Close modal">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+      <div class="certificate-zoom-body"></div>
+    </div>
+  </div>
+
+  <div class="nav-overlay" aria-hidden="true"></div>
+
+  <header class="site-header" data-reveal>
+    <a class="brand" href="#home" aria-label="Tushar portfolio home">
+      <div class="brand-avatar" aria-hidden="true">
+        <img src="assets/logo/tushar-pfp.svg" alt="Tushar Avatar" decoding="async">
+      </div>
+      <div>
+        <strong>Tushar Kumar Suthar</strong>
+        <small>BCA Student / Software Developer</small>
+      </div>
+    </a>
+
+    <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false">
+      <svg class="hamburger-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" focusable="false">
+        <line class="line-top" x1="4" y1="6" x2="20" y2="6"></line>
+        <line class="line-mid" x1="4" y1="12" x2="20" y2="12"></line>
+        <line class="line-bot" x1="4" y1="18" x2="20" y2="18"></line>
+      </svg>
+    </button>
+
+    <div class="header-actions">
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a href="#home">Home</a>
+        <a href="#work">Work</a>
+        <a href="#achievement">Credentials</a>
+        <a href="#about">About</a>
+        <a href="assets/resume/Tushar_Kumar_Suthar_Resume.pdf" target="_blank">Resume</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <button class="theme-toggle" type="button" aria-label="Switch to light mode" aria-pressed="false">
+        <span class="theme-icon theme-icon-moon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" focusable="false">
+            <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+          </svg>
+        </span>
+        <span class="theme-icon theme-icon-sun" aria-hidden="true">
+          <svg viewBox="0 0 24 24" focusable="false">
+            <circle cx="12" cy="12" r="4"></circle>
+            <path
+              d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41">
+            </path>
+          </svg>
+        </span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section id="home" class="hero section">
+      <div class="hero-copy" data-reveal>
+        <p class="eyebrow">Portfolio / 2026</p>
+        <h1>Hi, I'm Tusharr</h1>
+        <div class="hero-role-wrapper">
+          <span class="role-switcher">
+            <span class="role-item active">Frontend Developer</span>
+            <span class="role-item">Creative Coder</span>
+            <span class="role-item">UI/UX Enthusiast</span>
+            <span class="role-item">AI Explorer</span>
+            <span class="role-item">Lifelong Learner</span>
+          </span>
+        </div>
+        <p class="hero-text">
+          I'm a BCA student and aspiring <span class="highlight">Frontend Developer</span> with a passion for creating
+          modern, responsive, and user-friendly web experiences. I enjoy transforming ideas into clean digital products
+          using <span class="highlight">HTML</span>, <span class="highlight">CSS</span>, <span
+            class="highlight">JavaScript</span>, and modern technologies. I continuously improve my skills through
+          certifications, real-world projects, and UI/UX exploration while focusing on performance, accessibility, and
+          elegant design.
+        </p>
+        <p class="hero-text">
+          Beyond coding, I enjoy exploring <span class="highlight">AI</span>, learning new technologies, and building
+          creative solutions that solve real-world problems. My goal is to become a skilled <span class="highlight">Full
+            Stack Developer</span> while continuously growing as a designer, developer, and problem solver.
+        </p>
+        <div class="hero-actions">
+          <a class="button primary magnetic" href="#work">View Work</a>
+          <a class="button glass magnetic" href="assets/resume/Tushar_Kumar_Suthar_Resume.pdf" target="_blank">
+            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="7 10 12 15 17 10"></polyline>
+              <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+            Resume PDF
+          </a>
+          <a class="button carbon magnetic" href="#contact">Let's Talk</a>
+        </div>
+      </div>
+
+      <aside class="hero-panel" data-reveal>
+        <div class="profile-card" aria-label="Profile photo of Tushar Kumar Suthar">
+          <img src="file_0000000076547209858daded9349876b.png" alt="Tushar Kumar Suthar" width="450" height="518"
+            decoding="async">
+        </div>
+        <div class="status-card">
+          <span class="pulse"></span>
+          <p>Open to Internships and Available for Freelance</p>
+        </div>
+        <div class="stats-grid">
+          <div class="stat-item">
+            <strong data-count="12" data-suffix="+">0</strong>
+            <span>Projects Completed</span>
+          </div>
+          <div class="stat-item">
+            <strong data-count="6" data-suffix="+">0</strong>
+            <span>Professional Certifications</span>
+          </div>
+          <div class="stat-item">
+            <strong>Frontend</strong>
+            <span>Specialization</span>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <section id="work" class="section work">
+      <div class="section-heading" data-reveal>
+        <p class="eyebrow">Currently Building</p>
+        <h2>Actively crafting real-world web experiences.</h2>
+        <p class="section-desc">
+          I am actively working on real-world web development projects to strengthen my frontend skills. Each completed
+          project will be published here with source code, live demo, and technical details.
+        </p>
+      </div>
+
+      <div class="currently-building-grid">
+        <!-- Card 1: Task Manager -->
+        <article class="project-card currently-building-card status-in-progress" data-reveal>
+          <div class="card-header">
+            <div class="project-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <rect x="3" y="4" width="18" height="15" rx="2" ry="2"></rect>
+                <line x1="9" y1="9" x2="15" y2="9"></line>
+                <line x1="9" y1="13" x2="13" y2="13"></line>
+              </svg>
+            </div>
+            <div class="status-badge status-in-progress">
+              <span class="status-dot"></span>
+              <span>In Progress</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>Task Manager</h3>
+            <p>A sleek productivity application featuring drag-and-drop Kanban boards, task categorization, and local
+              storage state persistence.</p>
+            <div class="card-tags">
+              <span class="card-tag">HTML</span>
+              <span class="card-tag">CSS Grid</span>
+              <span class="card-tag">JavaScript</span>
+            </div>
+          </div>
+          <div class="card-footer">
+            <div class="progress-labels">
+              <span>Progress</span>
+              <strong class="progress-counter" data-target="65">0%</strong>
+            </div>
+            <div class="progress-bar">
+              <div class="progress-fill" data-progress="65"
+                style="width: 65%; transform: scaleX(0); transform-origin: left;"></div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 2: Weather Dashboard -->
+        <article class="project-card currently-building-card status-planning" data-reveal>
+          <div class="card-header">
+            <div class="project-icon weather-icon-container">
+              <svg class="weather-svg" viewBox="0 0 24 24" width="24" height="24">
+                <defs>
+                  <radialGradient id="sunGlow" cx="50%" cy="50%" r="50%">
+                    <stop offset="0%" stop-color="var(--accent)" stop-opacity="1" />
+                    <stop offset="100%" stop-color="var(--accent)" stop-opacity="0.2" />
+                  </radialGradient>
+                </defs>
+                <g class="sun-rays">
+                  <line x1="10" y1="2" x2="10" y2="4" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" />
+                  <line x1="10" y1="16" x2="10" y2="18" stroke="var(--accent)" stroke-width="2"
+                    stroke-linecap="round" />
+                  <line x1="4.34" y1="4.34" x2="5.76" y2="5.76" stroke="var(--accent)" stroke-width="2"
+                    stroke-linecap="round" />
+                  <line x1="14.24" y1="14.24" x2="15.66" y2="15.66" stroke="var(--accent)" stroke-width="2"
+                    stroke-linecap="round" />
+                  <line x1="2" y1="10" x2="4" y2="10" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" />
+                  <line x1="16" y1="10" x2="18" y2="10" stroke="var(--accent)" stroke-width="2"
+                    stroke-linecap="round" />
+                  <line x1="5.76" y1="14.24" x2="4.34" y2="15.66" stroke="var(--accent)" stroke-width="2"
+                    stroke-linecap="round" />
+                  <line x1="15.66" y1="4.34" x2="14.24" y2="5.76" stroke="var(--accent)" stroke-width="2"
+                    stroke-linecap="round" />
+                </g>
+                <circle class="sun-core" cx="10" cy="10" r="4.5" fill="url(#sunGlow)" stroke="var(--accent)"
+                  stroke-width="1.8" />
+                <g class="weather-cloud">
+                  <path d="M16 16.5a2.5 2.5 0 0 0 2-3.9 3.5 3.5 0 0 0-6.1-2.1 3 3 0 0 0-4.4 2.8 2.5 2.5 0 0 0 .5 4.7h8z"
+                    fill="var(--panel)" stroke="var(--purple)" stroke-width="1.8" stroke-linejoin="round" />
+                </g>
+              </svg>
+            </div>
+            <div class="status-badge status-planning">
+              <span class="status-dot"></span>
+              <span>Planning</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>Weather Dashboard</h3>
+            <p>A meteorological application fetching real-time weather metrics, UV indexes, and 5-day forecasts
+              utilizing the OpenWeather API.</p>
+            <div class="card-tags">
+              <span class="card-tag">APIs</span>
+              <span class="card-tag">Asynchronous JS</span>
+              <span class="card-tag">Flexbox</span>
+            </div>
+          </div>
+          <div class="card-footer">
+            <div class="progress-labels">
+              <span>Progress</span>
+              <strong class="progress-counter" data-target="20">0%</strong>
+            </div>
+            <div class="progress-bar">
+              <div class="progress-fill" data-progress="20"
+                style="width: 20%; transform: scaleX(0); transform-origin: left;"></div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 3: Expense Tracker -->
+        <article class="project-card currently-building-card status-coming-next" data-reveal>
+          <div class="card-header">
+            <div class="project-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <line x1="12" y1="1" x2="12" y2="23"></line>
+                <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+              </svg>
+            </div>
+            <div class="status-badge status-coming-next">
+              <span class="status-dot"></span>
+              <span>Coming Next</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>Expense Tracker</h3>
+            <p>A personal finance tracker implementing interactive data visualization, dynamic list filtering, and
+              transaction log systems.</p>
+            <div class="card-tags">
+              <span class="card-tag">Data Visuals</span>
+              <span class="card-tag">DOM Manipulation</span>
+              <span class="card-tag">Storage</span>
+            </div>
+          </div>
+          <div class="card-footer">
+            <div class="progress-labels">
+              <span>Progress</span>
+              <strong class="progress-counter" data-target="0">0%</strong>
+            </div>
+            <div class="progress-bar">
+              <div class="progress-fill" data-progress="0"
+                style="width: 0%; transform: scaleX(0); transform-origin: left;"></div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="achievement" class="section achievement">
+      <div class="section-heading" data-reveal>
+        <p class="eyebrow">Continuous Learning & Professional Certifications</p>
+        <h2>Milestones from my learning journey.</h2>
+      </div>
+
+      <div class="achievement-carousel-container" data-reveal>
+        <div class="achievement-carousel-track">
+          <!-- Slide 1: Mahindra Rise -->
+          <div class="achievement-slide is-active" data-slide-index="0">
+            <div class="achievement-preview-wrap">
+              <div class="achievement-preview-card">
+                <img class="certificate-img" src="Screenshot_20260503_224806_Drive.jpg"
+                  alt="Mahindra Rise | The Quiet Power Quiz Certificate" width="800" height="571" decoding="async">
+                <div class="achievement-badge badge-leadership">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+                  </svg>
+                  <span>Leadership</span>
+                </div>
+                <button class="view-cert-modal-btn" type="button" aria-label="View Full Certificate: Mahindra Rise"
+                  data-src="Screenshot_20260503_224806_Drive.jpg">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" />
+                  </svg>
+                  Quick View
+                </button>
+              </div>
+            </div>
+
+            <div class="achievement-details-wrap">
+              <div class="achievement-meta">
+                <span class="achievement-org">Mahindra Rise × Breath Beings</span>
+                <span class="achievement-year">2026</span>
+              </div>
+              <h3 class="achievement-title">The Quiet Power Quiz</h3>
+              <p class="achievement-desc">
+                Recognized for demonstrating quiet leadership through collaboration, accountability, emotional
+                intelligence, and responsible decision making. This assessment reflects the ability to support teams,
+                build trust, and create positive impact through thoughtful leadership rather than authority.
+              </p>
+              <div class="achievement-tags">
+                <span class="tag-green">Leadership</span>
+                <span class="tag-blue">Teamwork</span>
+                <span class="tag-purple">Communication</span>
+                <span class="tag-cyan">Decision Making</span>
+                <span class="tag-purple">Emotional Intelligence</span>
+                <span class="tag-green">Responsibility</span>
+                <span class="tag-amber">Collaboration</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 2: Web Development -->
+          <div class="achievement-slide" data-slide-index="1">
+            <div class="achievement-preview-wrap">
+              <div class="achievement-preview-card">
+                <img class="certificate-img" src="Screenshot_20260503_224822_Drive.jpg"
+                  alt="Web Development Course Certification" width="800" height="571" loading="lazy" decoding="async">
+                <div class="achievement-badge badge-perfect">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <circle cx="12" cy="8" r="7" />
+                    <path d="M8.21 13.89L7 23l5-3 5 3-1.21-9.12" />
+                  </svg>
+                  <span>Perfect Score</span>
+                </div>
+                <button class="view-cert-modal-btn" type="button" aria-label="View Full Certificate: Web Development"
+                  data-src="certificate.pdf" data-is-pdf="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" />
+                  </svg>
+                  View PDF Certificate
+                </button>
+              </div>
+            </div>
+
+            <div class="achievement-details-wrap">
+              <div class="achievement-meta">
+                <span class="achievement-org">WebDevelopmentCourse.in</span>
+                <span class="achievement-year">2026</span>
+              </div>
+              <h3 class="achievement-title">Web Development Course Certification</h3>
+              <p class="achievement-desc">
+                Successfully completed a comprehensive Web Development course with a perfect score of 50/50. The
+                certification validates strong knowledge of modern web development concepts, responsive website
+                creation, HTML, CSS, JavaScript, and frontend best practices.
+              </p>
+              <div class="achievement-tags">
+                <span class="tag-blue">HTML5</span>
+                <span class="tag-cyan">CSS3</span>
+                <span class="tag-purple">JavaScript</span>
+                <span class="tag-blue">Responsive Design</span>
+                <span class="tag-green">Frontend Development</span>
+                <span class="tag-purple">Web Development</span>
+                <span class="tag-amber">Problem Solving</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 3: IIT Bombay HTML -->
+          <div class="achievement-slide" data-slide-index="2">
+            <div class="achievement-preview-wrap">
+              <div class="achievement-preview-card">
+                <img class="certificate-img" src="Screenshot_20260503_224844_Drive.jpg"
+                  alt="HTML Training Certification" width="800" height="571" loading="lazy" decoding="async">
+                <div class="achievement-badge badge-iit">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+                    <path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5" />
+                  </svg>
+                  <span>IIT Bombay Certified</span>
+                </div>
+                <button class="view-cert-modal-btn" type="button" aria-label="View Full Certificate: IIT Bombay HTML"
+                  data-src="Screenshot_20260503_224844_Drive.jpg">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" />
+                  </svg>
+                  Quick View
+                </button>
+              </div>
+            </div>
+
+            <div class="achievement-details-wrap">
+              <div class="achievement-meta">
+                <span class="achievement-org">Spoken Tutorial, IIT Bombay × EduPyramids</span>
+                <span class="achievement-year">2025</span>
+              </div>
+              <h3 class="achievement-title">HTML Training Certification</h3>
+              <p class="achievement-desc">
+                Successfully completed the HTML Training program under the Spoken Tutorial initiative by IIT Bombay and
+                achieved 92.5% in the online assessment. This certification demonstrates a solid foundation in semantic
+                HTML, structured web page development, accessibility, and modern frontend practices.
+              </p>
+              <div class="achievement-tags">
+                <span class="tag-blue">HTML5</span>
+                <span class="tag-cyan">Semantic HTML</span>
+                <span class="tag-purple">Frontend Development</span>
+                <span class="tag-green">Accessibility</span>
+                <span class="tag-amber">Forms</span>
+                <span class="tag-green">Tables</span>
+                <span class="tag-purple">Web Development</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 4: Ethical AI -->
+          <div class="achievement-slide" data-slide-index="3">
+            <div class="achievement-preview-wrap">
+              <div class="achievement-preview-card">
+                <img class="certificate-img" src="IMG_20250930_205229.jpg"
+                  alt="Expert Talk on Ethical AI Development Certificate" width="800" height="571" loading="lazy"
+                  decoding="async">
+                <div class="achievement-badge badge-ai">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <path
+                      d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41" />
+                  </svg>
+                  <span>AI Learning</span>
+                </div>
+                <button class="view-cert-modal-btn" type="button" aria-label="View Full Certificate: Ethical AI"
+                  data-src="IMG_20250930_205229.jpg">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" />
+                  </svg>
+                  Quick View
+                </button>
+              </div>
+            </div>
+
+            <div class="achievement-details-wrap">
+              <div class="achievement-meta">
+                <span class="achievement-org">Silver Oak University</span>
+                <span class="achievement-year">2025</span>
+              </div>
+              <h3 class="achievement-title">Expert Talk on Ethical AI Development</h3>
+              <p class="achievement-desc">
+                Participated in an expert session focused on Ethical AI Development, exploring responsible artificial
+                intelligence, fairness, transparency, bias mitigation, privacy, and the future impact of AI
+                technologies. This participation reflects continuous learning and awareness of ethical practices in
+                modern technology.
+              </p>
+              <div class="achievement-tags">
+                <span class="tag-purple">Artificial Intelligence</span>
+                <span class="tag-amber">Ethical AI</span>
+                <span class="tag-green">Responsible AI</span>
+                <span class="tag-cyan">Technology Awareness</span>
+                <span class="tag-blue">Critical Thinking</span>
+                <span class="tag-purple">Innovation</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 5: Samsung Solve for Tomorrow -->
+          <div class="achievement-slide" data-slide-index="4">
+            <div class="achievement-preview-wrap">
+              <div class="achievement-preview-card">
+                <img class="certificate-img" src="Certificate-of-Participation.jpg"
+                  alt="Samsung Solve for Tomorrow Certificate of Participation" width="800" height="571" loading="lazy"
+                  decoding="async">
+                <div class="achievement-badge badge-innovation">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                  </svg>
+                  <span>Innovation Participant</span>
+                </div>
+                <button class="view-cert-modal-btn" type="button"
+                  aria-label="View Full Certificate: Samsung Solve for Tomorrow"
+                  data-src="Certificate-of-Participation.jpg">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" />
+                  </svg>
+                  Quick View
+                </button>
+              </div>
+            </div>
+
+            <div class="achievement-details-wrap">
+              <div class="achievement-meta">
+                <span class="achievement-org">Samsung India</span>
+                <span class="achievement-year">2026</span>
+              </div>
+              <h3 class="achievement-title">Samsung Solve for Tomorrow 2026 | Certificate of Participation</h3>
+              <p class="achievement-desc">
+                Participated in Samsung Solve for Tomorrow 2026, an innovation program focused on Design Thinking,
+                creative problem solving, and developing technology-driven solutions for real-world challenges. This
+                participation reflects a commitment to innovation, collaboration, and building impactful ideas for the
+                future.
+              </p>
+              <div class="achievement-tags">
+                <span class="tag-pink">Design Thinking</span>
+                <span class="tag-purple">Innovation</span>
+                <span class="tag-amber">Creative Problem Solving</span>
+                <span class="tag-blue">Critical Thinking</span>
+                <span class="tag-green">Team Collaboration</span>
+                <span class="tag-cyan">Technology Innovation</span>
+                <span class="tag-pink">Idea Development</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 6: IIT Bombay PostgreSQL -->
+          <div class="achievement-slide" data-slide-index="5">
+            <div class="achievement-preview-wrap">
+              <div class="achievement-preview-card">
+                <img class="certificate-img" src="TUSHAR-KUMAR-Participant-Certificate-1_260704_174025.jpg"
+                  alt="RDBMS PostgreSQL Training Certification" width="800" height="571" loading="lazy"
+                  decoding="async">
+                <div class="achievement-badge badge-db">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <ellipse cx="12" cy="5" rx="9" ry="3" />
+                    <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5" />
+                    <path d="M3 12c0 1.66 4 3 9 3s9-1.34 9-3" />
+                  </svg>
+                  <span>Database Specialist</span>
+                </div>
+                <button class="view-cert-modal-btn" type="button"
+                  aria-label="View Full Certificate: IIT Bombay PostgreSQL"
+                  data-src="TUSHAR-KUMAR-Participant-Certificate-1_260704_174025.jpg">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" />
+                  </svg>
+                  Quick View
+                </button>
+              </div>
+            </div>
+
+            <div class="achievement-details-wrap">
+              <div class="achievement-meta">
+                <span class="achievement-org">Spoken Tutorial, IIT Bombay × EduPyramids</span>
+                <span class="achievement-year">2026</span>
+              </div>
+              <h3 class="achievement-title">RDBMS PostgreSQL Training Certification</h3>
+              <p class="achievement-desc">
+                Successfully completed the RDBMS PostgreSQL Training program under the Spoken Tutorial initiative by IIT
+                Bombay and achieved a score of 87.5%. This certification demonstrates practical knowledge of relational
+                database management, PostgreSQL, SQL queries, database design, normalization, and data management
+                concepts.
+              </p>
+              <div class="achievement-tags">
+                <span class="tag-purple">PostgreSQL</span>
+                <span class="tag-blue">SQL</span>
+                <span class="tag-cyan">RDBMS</span>
+                <span class="tag-green">Database Design</span>
+                <span class="tag-indigo">Database Management</span>
+                <span class="tag-amber">Normalization</span>
+                <span class="tag-purple">Data Querying</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="carousel-navigation-row">
+          <button class="carousel-arrow prev" type="button" aria-label="Previous Certificate">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="m15 18-6-6 6-6"></path>
+            </svg>
+          </button>
+
+          <button class="carousel-arrow next" type="button" aria-label="Next Certificate">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="m9 6 6 6-6 6"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <p class="achievement-section-footer">
+        Every certification represents a milestone in my learning journey, from technical expertise and web development
+        to leadership, ethical AI, and professional growth.
+      </p>
+    </section>
+
+    <section id="skills" class="section skills-marquee-section">
+      <div class="skills-container" data-reveal>
+        <div class="skills-track">
+          <!-- First set of icons -->
+          <div class="skill-icon-item" title="HTML5">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5"
+              width="36" height="36" loading="lazy" decoding="async">
+          </div>
+          <div class="skill-icon-item" title="CSS3">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3" width="36"
+              height="36" loading="lazy" decoding="async">
+          </div>
+          <div class="skill-icon-item" title="JavaScript">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
+              alt="JavaScript" width="36" height="36" loading="lazy" decoding="async">
+          </div>
+          <div class="skill-icon-item" title="React">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React"
+              width="36" height="36" loading="lazy" decoding="async">
+          </div>
+          <div class="skill-icon-item" title="Node.js">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js"
+              width="36" height="36" loading="lazy" decoding="async">
+          </div>
+          <div class="skill-icon-item" title="GitHub">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub"
+              class="icon-dark-fix" width="36" height="36" loading="lazy" decoding="async">
+          </div>
+          <div class="skill-icon-item" title="VS Code">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" alt="VS Code"
+              width="36" height="36" loading="lazy" decoding="async">
+          </div>
+          <div class="skill-icon-item" title="Figma">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" alt="Figma"
+              width="36" height="36" loading="lazy" decoding="async">
+          </div>
+          <div class="skill-icon-item" title="Tailwind CSS">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg"
+              alt="Tailwind CSS" width="36" height="36" loading="lazy" decoding="async">
+          </div>
+          <div class="skill-icon-item" title="Vite">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vite/vite-original.svg" alt="Vite" width="36"
+              height="36" loading="lazy" decoding="async">
+          </div>
+
+          <!-- Duplicate set for infinite loop -->
+          <div class="skill-icon-item" title="HTML5">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5"
+              width="36" height="36" loading="lazy" decoding="async">
+          </div>
+          <div class="skill-icon-item" title="CSS3">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3" width="36"
+              height="36" loading="lazy" decoding="async">
+          </div>
+          <div class="skill-icon-item" title="JavaScript">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
+              alt="JavaScript" width="36" height="36" loading="lazy" decoding="async">
+          </div>
+          <div class="skill-icon-item" title="React">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React"
+              width="36" height="36" loading="lazy" decoding="async">
+          </div>
+          <div class="skill-icon-item" title="Node.js">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js"
+              width="36" height="36" loading="lazy" decoding="async">
+          </div>
+          <div class="skill-icon-item" title="GitHub">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub"
+              class="icon-dark-fix" width="36" height="36" loading="lazy" decoding="async">
+          </div>
+          <div class="skill-icon-item" title="VS Code">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" alt="VS Code"
+              width="36" height="36" loading="lazy" decoding="async">
+          </div>
+          <div class="skill-icon-item" title="Figma">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" alt="Figma"
+              width="36" height="36" loading="lazy" decoding="async">
+          </div>
+          <div class="skill-icon-item" title="Tailwind CSS">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg"
+              alt="Tailwind CSS" width="36" height="36" loading="lazy" decoding="async">
+          </div>
+          <div class="skill-icon-item" title="Vite">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vite/vite-original.svg" alt="Vite" width="36"
+              height="36" loading="lazy" decoding="async">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section about purpose-section">
+      <div class="purpose-heading" data-reveal>
+        <p class="eyebrow">About me </p>
+        <h2>Building with Purpose</h2>
+      </div>
+
+      <div class="purpose-board">
+        <article class="purpose-statement" data-reveal>
+          <div class="glow-bg"></div>
+          <span>Why I Build</span>
+          <h3>Turning curiosity into useful digital experiences.</h3>
+          <p>
+            I am learning computer applications by building real interfaces, solving
+            small problems deeply, and shaping every project with clarity, motion,
+            and practical purpose.
+          </p>
+          <p>
+            My coding journey is driven by a desire to bridge the gap between design and development. I enjoy pushing
+            technical boundaries, learning modern frontend ecosystems, and building high-performance web systems that
+            users love.
+          </p>
+
+          <div class="about-highlights">
+            <div class="highlight-card">
+              <span class="highlight-icon">🎓</span>
+              <div class="highlight-info">
+                <strong>BCA Student</strong>
+                <span>Silver Oak University</span>
+              </div>
+            </div>
+            <div class="highlight-card">
+              <span class="highlight-icon">💻</span>
+              <div class="highlight-info">
+                <strong>12+ Projects</strong>
+                <span>Built &amp; Deployed</span>
+              </div>
+            </div>
+            <div class="highlight-card">
+              <span class="highlight-icon">📜</span>
+              <div class="highlight-info">
+                <strong>6+ Certifications</strong>
+                <span>IITB, Samsung, etc.</span>
+              </div>
+            </div>
+            <div class="highlight-card">
+              <span class="highlight-icon">🚀</span>
+              <div class="highlight-info">
+                <strong>Frontend Developer</strong>
+                <span>Specialized Creator</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <div class="purpose-path-container" data-reveal>
+          <div class="timeline-connector">
+            <div class="timeline-line"></div>
+            <div class="timeline-progress"></div>
+          </div>
+          <div class="purpose-path">
+            <article class="timeline-card">
+              <div class="timeline-dot"></div>
+              <span>01</span>
+              <p>Foundation</p>
+              <h3>Computer Applications</h3>
+              <small>2025 / Started with fundamentals, logic, and problem solving.</small>
+            </article>
+
+            <article class="timeline-card">
+              <div class="timeline-dot"></div>
+              <span>02</span>
+              <p>Practice</p>
+              <h3>Web Projects</h3>
+              <small>2026 / Building interfaces, websites, and creative solutions.</small>
+            </article>
+
+            <article class="timeline-card">
+              <div class="timeline-dot"></div>
+              <span>03</span>
+              <p>Now</p>
+              <h3>Silver Oak University</h3>
+              <small>3rd-Semester Bachelor of Computer Application.</small>
+            </article>
+
+            <article class="timeline-card">
+              <div class="timeline-dot"></div>
+              <span>04</span>
+              <p>NEXT</p>
+              <h3>AI &amp; Full Stack Development</h3>
+              <small>2026+ / Continuously exploring AI, modern web technologies, React, backend development, databases,
+                and scalable full-stack applications while building real-world projects.</small>
+            </article>
+          </div>
+        </div>
+
+        <div class="purpose-values" data-reveal>
+          <span class="skill-chip">Algorithms &amp; Logic</span>
+          <span class="skill-chip">Web Development</span>
+          <span class="skill-chip">Website Design</span>
+          <span class="skill-chip">Clean UI Motion</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section: Beyond Coding (Fun Facts) -->
+    <section id="fun-facts" class="section fun-facts">
+      <div class="section-heading" data-reveal>
+        <p class="eyebrow">Beyond Coding</p>
+        <h2>A few things that describe me beyond development.</h2>
+      </div>
+
+      <div class="fun-facts-grid">
+        <!-- Card 1 -->
+        <article class="project-card fun-fact-card" data-reveal>
+          <div class="fun-fact-header">
+            <div class="fun-fact-badge">
+              <span class="emoji">☕</span>
+              <span>Learning Mindset</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>Always Exploring</h3>
+            <p>I enjoy learning new technologies, experimenting with ideas, and improving my skills every day.</p>
+          </div>
+        </article>
+
+        <!-- Card 2 -->
+        <article class="project-card fun-fact-card" data-reveal>
+          <div class="fun-fact-header">
+            <div class="fun-fact-badge">
+              <span class="emoji">💡</span>
+              <span>Problem Solving</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>Creative Thinking</h3>
+            <p>I enjoy turning ideas into practical, user-friendly digital experiences.</p>
+          </div>
+        </article>
+
+        <!-- Card 3 -->
+        <article class="project-card fun-fact-card" data-reveal>
+          <div class="fun-fact-header">
+            <div class="fun-fact-badge">
+              <span class="emoji">🎯</span>
+              <span>Goal</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>Full Stack Developer</h3>
+            <p>Currently building a strong frontend foundation while learning backend technologies.</p>
+          </div>
+        </article>
+
+        <!-- Card 4 -->
+        <article class="project-card fun-fact-card" data-reveal>
+          <div class="fun-fact-header">
+            <div class="fun-fact-badge">
+              <span class="emoji">🚀</span>
+              <span>Motivation</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>Keep Building</h3>
+            <p>Every project teaches something new, and every challenge helps me grow.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="contact" class="section contact">
+      <div class="contact-card" data-reveal>
+        <div class="contact-copy">
+          <p class="eyebrow">Let's Make It Happen</p>
+          <h2>Have a project, edit, or idea?</h2>
+          <p>Let's build something crisp, useful, and visually alive.</p>
+        </div>
+
+        <form class="contact-form" id="contact-form" aria-label="Contact form">
+
+          <label>
+            <span>Name</span>
+            <input type="text" name="name" autocomplete="name" required>
+          </label>
+
+          <label>
+            <span>Email</span>
+            <input type="email" name="email" autocomplete="email" required>
+          </label>
+
+          <label class="contact-form-full">
+            <span>Message</span>
+            <textarea name="message" rows="5" required></textarea>
+          </label>
+
+          <button class="button primary magnetic" type="submit">Send Message</button>
+
+          <!-- Success Message Container -->
+          <div class="form-success-msg" hidden>
+            <div class="success-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+            </div>
+            <h3>Message Sent!</h3>
+            <p>Thank you for reaching out. Tushar will get back to you as soon as possible.</p>
+            <button class="button ghost reset-form-btn" type="button">Send Another</button>
+          </div>
+
+          <!-- Error Message Container -->
+          <div class="form-error-msg" hidden>
+            <span>Oops! Something went wrong. Please try again.</span>
+            <button class="form-retry-btn" type="button"
+              style="background: none; border: none; text-decoration: underline; color: inherit; cursor: pointer; margin-left: 8px; font-weight: 600; padding: 0;">Retry</button>
+          </div>
+
+
+        </form>
+
+        <div class="social-links" aria-label="Social links">
+          <a class="social-link magnetic" href="https://www.instagram.com/tusharsthrr?igsh=MTA0ZXZ4Mmk5OHI1cg=="
+            target="_blank" rel="noopener noreferrer" aria-label="Open Tushar's Instagram profile">
+            <span class="social-icon instagram" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false">
+                <rect x="3" y="3" width="18" height="18" rx="5"></rect>
+                <circle cx="12" cy="12" r="4"></circle>
+                <circle cx="17.5" cy="6.5" r="1"></circle>
+              </svg>
+            </span>
+            <span>
+              <strong>Instagram</strong>
+              <small>@tusharsthrr</small>
+            </span>
+          </a>
+
+          <a class="social-link magnetic"
+            href="https://www.linkedin.com/in/tusharsthrr?utm_source=share_via&utm_content=profile&utm_medium=member_android"
+            target="_blank" rel="noopener noreferrer" aria-label="Open Tushar's LinkedIn profile">
+            <span class="social-icon linkedin" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false">
+                <path
+                  d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0v8.399h4.988v-10.131c0-7.88-8.922-7.593-11.018-3.714v-2.155z" />
+              </svg>
+            </span>
+            <span>
+              <strong>LinkedIn</strong>
+              <small>tusharsthrr</small>
+            </span>
+          </a>
+
+          <a class="social-link magnetic" href="https://x.com/tusharsthrr" target="_blank" rel="noopener noreferrer"
+            aria-label="Open Tushar's X profile">
+            <span class="social-icon x" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false">
+                <path
+                  d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+              </svg>
+            </span>
+            <span>
+              <strong>X</strong>
+              <small>@tusharsthrr</small>
+            </span>
+          </a>
+
+          <a class="social-link magnetic" href="https://github.com/tusharsthrr" target="_blank"
+            rel="noopener noreferrer" aria-label="Open Tushar's GitHub profile">
+            <span class="social-icon github" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false">
+                <path
+                  d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+              </svg>
+            </span>
+            <span>
+              <strong>GitHub</strong>
+              <small>github.com/tusharsthrr</small>
+            </span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section: My Philosophy -->
+    <section class="section quote-section" data-reveal>
+      <div class="quote-container">
+        <h2 class="philosophy-title">My Philosophy</h2>
+        <div class="philosophy-content">
+          <p class="philosophy-highlight">Progress, not perfection.</p>
+          <p class="philosophy-text">
+            I believe that consistent learning, continuous improvement, and building real-world projects matter more than chasing perfection.
+          </p>
+          <cite class="philosophy-signature">— Tushar Kumar Suthar</cite>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2026 Tushar Kumar Suthar. All rights reserved.</p>
+  </footer>
+
+  <section class="ai-chat" aria-label="AI portfolio chat">
+    <button class="ai-chat-toggle" type="button" aria-label="Open AI chat" aria-expanded="false">
+      <span>AI</span>
+    </button>
+
+    <div class="ai-chat-panel" hidden>
+      <div class="ai-chat-header">
+        <div>
+          <span>AI Assistant</span>
+          <strong>Ask JARVIS</strong>
+        </div>
+        <button class="ai-chat-close" type="button" aria-label="Close AI chat">
+          <svg viewBox="0 0 24 24" focusable="false">
+            <path d="M18 6 6 18"></path>
+            <path d="m6 6 12 12"></path>
+          </svg>
+        </button>
+      </div>
+
+      <div class="ai-chat-messages" aria-live="polite">
+        <div class="ai-message bot">
+          Hi, I'm JARVIS, Tushar's AI assistant. How can I help you today? Feel free to ask about his skills, projects,
+          certificates, experience, or contact details. </div>
+      </div>
+
+      <div class="ai-chat-prompts" aria-label="Suggested questions">
+        <button type="button" data-chat-prompt="What skills does Tushar have?">Skills</button>
+        <button type="button" data-chat-prompt="Show me Tushar's projects.">Projects</button>
+        <button type="button" data-chat-prompt="How can I contact Tushar?">Contact</button>
+      </div>
+
+      <form class="ai-chat-form">
+        <input type="text" name="message" autocomplete="off" placeholder="Ask something..."
+          aria-label="Ask the AI assistant">
+        <button type="submit" aria-label="Send message">
+          <svg viewBox="0 0 24 24" focusable="false">
+            <path d="m22 2-7 20-4-9-9-4Z"></path>
+            <path d="M22 2 11 13"></path>
+          </svg>
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script src="script.js?v=achievement_carousel_preloader"></script>
+</body>
+
+</html>
