@@ -7,13 +7,607 @@
   <meta name="description"
     content="Portfolio of Tushar Kumar Suthar, BCA student and aspiring software developer focused on web projects, cinematic edits, and mobile-first digital experiences.">
   <title>Tushar Kumar Suthar | Portfolio</title>
-  <link rel="icon" type="image/png" href="wp15370737-silver-surfer-pc-4k-wallpapers.png">
+
+  <link rel="canonical" href="https://tusharsthrr.github.io/developer-portfolio/">
+  <link id="favicon" rel="icon" type="image/svg+xml" href="assets/logo/tushar-pfp.svg">
+
+  <!-- DNS Prefetch and Preconnect for Google Fonts -->
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- Preload Critical LCP Assets -->
+  <link rel="preload" href="assets/logo/tushar-pfp.svg" as="image" type="image/svg+xml">
+  <link rel="preload" href="hero-pfp.webp" as="image" type="image/webp">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://tusharsthrr.github.io/developer-portfolio/">
+  <meta property="og:title" content="Tushar Kumar Suthar | Portfolio">
+  <meta property="og:description"
+    content="Portfolio of Tushar Kumar Suthar, BCA student and aspiring software developer focused on web projects, cinematic edits, and mobile-first digital experiences.">
+  <meta property="og:image" content="https://tusharsthrr.github.io/developer-portfolio/assets/images/preview.png">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://tusharsthrr.github.io/developer-portfolio/">
+  <meta property="twitter:title" content="Tushar Kumar Suthar | Portfolio">
+  <meta property="twitter:description"
+    content="Portfolio of Tushar Kumar Suthar, BCA student and aspiring software developer focused on web projects, cinematic edits, and mobile-first digital experiences.">
+  <meta property="twitter:image" content="https://tusharsthrr.github.io/developer-portfolio/assets/images/preview.png">
+
   <link
-    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,400;1,600;1,700&family=Dancing+Script:wght@700&family=Inter:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&family=Sora:wght@500;600;700;800&display=swap"
-    rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,700;1,500;1,600&family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700&family=Sora:wght@500;600;700;800&display=swap"
+    rel="stylesheet">    <style>
+:root {
+  /* Premium Dark Theme Glassmorphism */
+  --bg: #030307;
+  --bg-soft: rgba(10, 10, 18, 0.6);
+  --panel: rgba(18, 18, 29, 0.45);
+  --panel-strong: rgba(28, 28, 45, 0.65);
+  --line: rgba(255, 255, 255, 0.06);
+  --line-strong: rgba(255, 255, 255, 0.12);
+  --text: #f8fafc;
+  --muted: #94a3b8;
+
+  /* Vibrant Glowing Neons */
+  --accent: #38bdf8;
+  /* Neon Cyan */
+  --accent-soft: rgba(56, 189, 248, 0.08);
+  --purple: #a78bfa;
+  /* Neon Purple */
+  --purple-soft: rgba(167, 139, 250, 0.08);
+  --gold: #fbbf24;
+  /* Neon Gold */
+  --gold-soft: rgba(251, 191, 36, 0.08);
+  --cyan: #22d3ee;
+  --coral: #f87171;
+  --green: #34d399;
+
+  --navbar-height: 64px;
+  --navbar-top: 24px;
+  --navbar-top-mobile: 16px;
+
+  --shadow: 0 6px 16px 0 rgba(0, 0, 0, 0.3);
+  --glass-shadow: 0 8px 24px 0 rgba(0, 0, 0, 0.35), inset 0 1px 1px 0 rgba(255, 255, 255, 0.08);
+  --header-bg: rgba(7, 7, 12, 0.4);
+  --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-fast: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+body.light-mode {
+  /* Premium Light Theme Glassmorphism */
+  --bg: #f8fafc;
+  --bg-soft: rgba(241, 245, 249, 0.6);
+  --panel: rgba(255, 255, 255, 0.4);
+  --panel-strong: rgba(255, 255, 255, 0.7);
+  --line: rgba(15, 23, 42, 0.06);
+  --line-strong: rgba(15, 23, 42, 0.12);
+  --text: #0f172a;
+  --muted: #475569;
+
+  --accent: #0284c7;
+  /* Premium Deep Blue */
+  --accent-soft: rgba(2, 132, 199, 0.06);
+  --purple: #7c3aed;
+  /* Premium Purple */
+  --purple-soft: rgba(124, 58, 237, 0.06);
+  --gold: #d97706;
+  /* Premium Amber */
+  --gold-soft: rgba(217, 119, 6, 0.06);
+  --cyan: #0891b2;
+  --coral: #dc2626;
+  --green: #16a34a;
+
+  --shadow: 0 6px 16px 0 rgba(15, 23, 42, 0.05);
+  --glass-shadow: 0 8px 24px 0 rgba(15, 23, 42, 0.05), inset 0 1px 1px 0 rgba(255, 255, 255, 0.5);
+  --header-bg: rgba(255, 255, 255, 0.4);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background-color: var(--bg);
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+  background-size: 64px 64px;
+  background-attachment: fixed;
+  color: var(--text);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  transition: background-color 0.5s ease, color 0.5s ease;
+  line-height: 1.6;
+  letter-spacing: -0.01em;
+}
+
+body.light-mode {
+  background-image:
+    linear-gradient(rgba(15, 23, 42, 0.015) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(15, 23, 42, 0.015) 1px, transparent 1px);
+}
+
+/* Ambient Background Blobs */
+.blob-container {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(140px);
+  opacity: 0.12;
+  transition: background-color 0.5s ease, opacity 0.5s ease;
+  mix-blend-mode: screen;
+  will-change: transform, border-radius;
+}
+
+body.light-mode .blob {
+  opacity: 0.05;
+  mix-blend-mode: multiply;
+  filter: blur(120px);
+}
+
+.blob-1 {
+  width: 55vw;
+  height: 55vw;
+  background: radial-gradient(circle at 30% 30%, var(--accent) 0%, rgba(56, 189, 248, 0) 70%);
+  top: -15%;
+  left: -15%;
+  animation: morphBlob1 32s infinite alternate ease-in-out;
+}
+
+.blob-2 {
+  width: 50vw;
+  height: 50vw;
+  background: radial-gradient(circle at 70% 70%, var(--purple) 0%, rgba(167, 139, 250, 0) 70%);
+  bottom: -15%;
+  right: -10%;
+  animation: morphBlob2 38s infinite alternate ease-in-out;
+}
+
+.blob-3 {
+  width: 40vw;
+  height: 40vw;
+  background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0) 65%);
+  top: 25%;
+  left: 35%;
+  animation: morphBlob3 28s infinite alternate ease-in-out;
+}
+
+@keyframes morphBlob1 {
+  0% {
+    transform: translate(0, 0) scale(1);
+    border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%;
+  }
+
+  33% {
+    transform: translate(10%, 15%) scale(1.1);
+    border-radius: 70% 30% 52% 48% / 60% 40% 60% 40%;
+  }
+
+  66% {
+    transform: translate(-8%, 12%) scale(0.95);
+    border-radius: 50% 50% 30% 70% / 50% 60% 40% 50%;
+  }
+
+  100% {
+    transform: translate(0, 0) scale(1);
+    border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%;
+  }
+}
+
+@keyframes morphBlob2 {
+  0% {
+    transform: translate(0, 0) scale(1);
+    border-radius: 50% 50% 30% 70% / 50% 60% 40% 50%;
+  }
+
+  50% {
+    transform: translate(-12%, -18%) scale(0.9);
+    border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%;
+  }
+
+  100% {
+    transform: translate(15%, 10%) scale(1.05);
+    border-radius: 70% 30% 52% 48% / 60% 40% 60% 40%;
+  }
+}
+
+@keyframes morphBlob3 {
+  0% {
+    transform: translate(0, 0) scale(1);
+    border-radius: 70% 30% 52% 48% / 60% 40% 60% 40%;
+  }
+
+  50% {
+    transform: translate(18%, -12%) scale(1.15);
+    border-radius: 50% 50% 30% 70% / 50% 60% 40% 50%;
+  }
+
+  100% {
+    transform: translate(-10%, 15%) scale(0.9);
+    border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%;
+  }
+}
+
+/* Custom Cursor System */
+.custom-cursor {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+.cursor-dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 8px;
+  height: 8px;
+  background-color: var(--accent);
+  border-radius: 50%;
+  transform: translate3d(-100px, -100px, 0) translate(-50%, -50%) scale(1);
+  pointer-events: none;
+  z-index: 10000;
+  transition: transform 0.2s, background-color 0.3s;
+  will-change: transform;
+}
+
+.cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--accent);
+  border-radius: 50%;
+  transform: translate3d(-100px, -100px, 0) translate(-50%, -50%) scale(1);
+  pointer-events: none;
+  z-index: 9999;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.3s,
+    background-color 0.3s;
+  will-change: transform;
+}
+
+/* Cursor Interaction States */
+body.cursor-hovering .cursor-dot {
+  background-color: var(--purple);
+}
+
+body.cursor-hovering .cursor-ring {
+  border-color: var(--purple);
+  background-color: rgba(167, 139, 250, 0.05);
+}
+
+/* Hide native cursor only when device supports hover (computers) and reduced motion is not active */
+@media (hover: hover) {
+  body:not(.is-loading) {
+    cursor: none;
+  }
+
+  body:not(.is-loading) a,
+  body:not(.is-loading) button,
+  body:not(.is-loading) .certificate-dot,
+  body:not(.is-loading) .certificate-control {
+    cursor: none;
+  }
+}
+
+#scene {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
+body.nav-open,
+body.is-loading {
+  overflow: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+button {
+  background: none;
+  border: none;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Loading Screen (Apple-Inspired Preloader) */
+.loading-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  /* make sure it's on top of everything on load */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #030307;
+  background-image: radial-gradient(circle at center, rgba(10, 10, 26, 0.5) 0%, #030307 100%);
+  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+    visibility 0.5s;
+}
+
+body.light-mode .loading-screen {
+  background-color: #f8fafc;
+  background-image: radial-gradient(circle at center, rgba(241, 245, 249, 0.6) 0%, #f8fafc 100%);
+}
+
+.loading-screen.is-exiting {
+  opacity: 0;
+  transform: scale(0.98);
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.loader-content {
+  text-align: center;
+  margin-top: -4vh;
+}
+
+.loader-welcome {
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(28px, 6vw, 42px);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: var(--text);
+  opacity: 0;
+  transform: translate3d(0, 18px, 0);
+  animation: welcomeFadeIn 0.85s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  text-shadow: 0 2px 20px rgba(255, 255, 255, 0.05);
+}
+
+body.light-mode .loader-welcome {
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.03);
+}
+
+@keyframes welcomeFadeIn {
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.loader-status-container {
+  margin-top: 16px;
+  height: 24px;
+  overflow: hidden;
+}
+
+.loader-status-text {
+  display: block;
+  font-family: 'Poppins', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--muted);
+  letter-spacing: 0.02em;
+  opacity: 0;
+  transform: translate3d(0, 8px, 0);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.loader-status-text.is-active {
+  opacity: 0.8;
+  transform: translate3d(0, 0, 0);
+}
+
+/* Progress Section at Bottom */
+.loader-progress-wrap {
+  position: absolute;
+  bottom: 12%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  width: min(320px, 80vw);
+}
+
+.loader-percentage {
+  font-family: 'Poppins', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text);
+  letter-spacing: 0.04em;
+  opacity: 0.85;
+}
+
+.loader-progress-bar {
+  width: 100%;
+  height: 6px;
+  background-color: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 99px;
+  overflow: hidden;
+  position: relative;
+}
+
+body.light-mode .loader-progress-bar {
+  background-color: rgba(15, 23, 42, 0.04);
+  border: 1px solid rgba(15, 23, 42, 0.08);
+}
+
+.loader-progress-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--accent), var(--purple), var(--accent));
+  background-size: 200% 100%;
+  border-radius: 99px;
+  transition: width 0.15s cubic-bezier(0.1, 0.8, 0.25, 1);
+  animation: shine 3s linear infinite;
+}
+
+/* Breathing Glow behind Progress */
+.loader-breathing-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: calc(100% + 40px);
+  height: 30px;
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.12) 0%, rgba(167, 139, 250, 0) 70%);
+  filter: blur(10px);
+  pointer-events: none;
+  z-index: -1;
+  animation: preloaderBreathe 4s infinite ease-in-out;
+}
+
+@keyframes preloaderBreathe {
+
+  0%,
+  100% {
+    opacity: 0.45;
+    transform: translate(-50%, -50%) scale(0.95);
+  }
+
+  50% {
+    opacity: 0.85;
+    transform: translate(-50%, -50%) scale(1.15);
+  }
+}
+
+/* Fixed Back to Home Scroll-to-Top Button */
+.fixed-pfp {
+  position: fixed;
+  right: 24px;
+  bottom: 96px;
+  z-index: 90;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid rgba(255, 255, 255, 0.15) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(12px) scale(1);
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.2s,
+    background-color 0.2s,
+    opacity 0.4s ease,
+    visibility 0.4s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--panel-strong) !important;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+body.light-mode .fixed-pfp {
+  border: 2px solid rgba(15, 23, 42, 0.08) !important;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.06) !important;
+}
+
+body.nav-hidden .fixed-pfp {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+}
+
+body.nav-hidden .fixed-pfp:hover {
+  transform: translateY(-2px) scale(1.08);
+  border-color: var(--accent) !important;
+  box-shadow: 0 0 16px rgba(56, 189, 248, 0.45) !important;
+  background-color: var(--accent-soft) !important;
+}
+
+body.nav-hidden .fixed-pfp:hover svg {
+  stroke: var(--accent);
+}
+
+.fixed-pfp svg {
+  width: 20px;
+  height: 20px;
+  stroke: var(--text);
+  stroke-width: 2.5;
+  fill: none;
+  transition: var(--transition-fast);
+}
+
+/* Header & Nav */
+.site-header {
+  position: fixed;
+  top: var(--navbar-top);
+  left: 50%;
+  z-index: 90;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: min(1200px, calc(100% - 48px));
+  height: var(--navbar-height);
+  padding: 0 24px;
+  border: 1px solid var(--line);
+  border-radius: 99px;
+  background-color: var(--header-bg);
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+  box-shadow: var(--glass-shadow);
+  transform: translate(-50%, -10px);
+  opacity: 0;
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+    background-color 0.4s ease,
+    border-color 0.4s ease,
+    box-shadow 0.4s ease;
+}
+
+
+  </style>
+  <link rel="stylesheet" href="style.min.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="style.min.css"></noscript>
+
+  <!-- Schema.org JSON-LD structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Tushar Kumar Suthar",
+    "url": "https://tusharsthrr.github.io/developer-portfolio/",
+    "image": "https://tusharsthrr.github.io/developer-portfolio/assets/logo/tushar-pfp.svg",
+    "sameAs": [
+      "https://github.com/tusharsthrr",
+      "https://www.linkedin.com/in/tusharsthrr?utm_source=share_via&utm_content=profile&utm_medium=member_android",
+      "https://x.com/tusharsthrr",
+      "https://www.instagram.com/tusharsthrr?igsh=MTA0ZXZ4Mmk5OHI1cg=="
+    ],
+    "jobTitle": "Frontend Developer",
+    "knowsAbout": [
+      "Web Development",
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "UI/UX Design",
+      "Responsive Web Design"
+    ]
+  }
+  </script>
 </head>
 
 <body class="is-loading">
@@ -31,7 +625,7 @@
   </div>
   <div class="loading-screen" aria-live="polite" aria-label="Welcome preloader">
     <div class="loader-content">
-      <h2 class="loader-welcome">Welcome, Tushar.</h2>
+      <p class="loader-welcome">Welcome, Tushar.</p>
       <div class="loader-status-container">
         <span class="loader-status-text">Crafting Your Experience...</span>
       </div>
@@ -68,7 +662,7 @@
   <header class="site-header" data-reveal>
     <a class="brand" href="#home" aria-label="Tushar portfolio home">
       <div class="brand-avatar" aria-hidden="true">
-        <img src="assets/logo/tushar-pfp.svg" alt="Tushar Avatar" decoding="async">
+        <img src="assets/logo/tushar-pfp.svg" alt="Tushar Kumar Suthar Logo Avatar" width="50" height="50" decoding="async">
       </div>
       <div>
         <strong>Tushar Kumar Suthar</strong>
@@ -91,7 +685,7 @@
         <a href="#work">Work</a>
         <a href="#achievement">Credentials</a>
         <a href="#about">About</a>
-        <a href="assets/resume/Tushar_Kumar_Suthar_Resume.pdf" target="_blank">Resume</a>
+        <a href="assets/resume/Tushar_Kumar_Suthar_Resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a>
         <a href="#contact">Contact</a>
       </nav>
 
@@ -142,7 +736,8 @@
         </p>
         <div class="hero-actions">
           <a class="button primary magnetic" href="#work">View Work</a>
-          <a class="button glass magnetic" href="assets/resume/Tushar_Kumar_Suthar_Resume.pdf" target="_blank">
+          <a class="button glass magnetic" href="assets/resume/Tushar_Kumar_Suthar_Resume.pdf" target="_blank"
+            rel="noopener noreferrer">
             <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
               stroke-linecap="round" stroke-linejoin="round">
               <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
@@ -157,8 +752,8 @@
 
       <aside class="hero-panel" data-reveal>
         <div class="profile-card" aria-label="Profile photo of Tushar Kumar Suthar">
-          <img src="file_0000000076547209858daded9349876b.png" alt="Tushar Kumar Suthar" width="450" height="518"
-            decoding="async">
+          <img src="hero-pfp.webp" alt="Tushar Kumar Suthar - Professional Portrait"
+            width="450" height="518" decoding="async">
         </div>
         <div class="status-card">
           <span class="pulse"></span>
@@ -343,8 +938,9 @@
           <div class="achievement-slide is-active" data-slide-index="0">
             <div class="achievement-preview-wrap">
               <div class="achievement-preview-card">
-                <img class="certificate-img" src="Screenshot_20260503_224806_Drive.jpg"
-                  alt="Mahindra Rise | The Quiet Power Quiz Certificate" width="800" height="571" decoding="async">
+                <img class="certificate-img" src="screenshot-drive-1.webp"
+                  alt="Mahindra Rise | The Quiet Power Quiz Certificate" width="800" height="571" loading="lazy"
+                  decoding="async">
                 <div class="achievement-badge badge-leadership">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                     stroke-linejoin="round">
@@ -353,7 +949,7 @@
                   <span>Leadership</span>
                 </div>
                 <button class="view-cert-modal-btn" type="button" aria-label="View Full Certificate: Mahindra Rise"
-                  data-src="Screenshot_20260503_224806_Drive.jpg">
+                  data-src="screenshot-drive-1.webp">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
                     stroke-linejoin="round">
                     <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" />
@@ -365,7 +961,7 @@
 
             <div class="achievement-details-wrap">
               <div class="achievement-meta">
-                <span class="achievement-org">Mahindra Rise × Breath Beings</span>
+                <span class="achievement-org">Mahindra Rise &times; Breath Beings</span>
                 <span class="achievement-year">2026</span>
               </div>
               <h3 class="achievement-title">The Quiet Power Quiz</h3>
@@ -390,7 +986,7 @@
           <div class="achievement-slide" data-slide-index="1">
             <div class="achievement-preview-wrap">
               <div class="achievement-preview-card">
-                <img class="certificate-img" src="Screenshot_20260503_224822_Drive.jpg"
+                <img class="certificate-img" src="screenshot-drive-2.webp"
                   alt="Web Development Course Certification" width="800" height="571" loading="lazy" decoding="async">
                 <div class="achievement-badge badge-perfect">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -438,7 +1034,7 @@
           <div class="achievement-slide" data-slide-index="2">
             <div class="achievement-preview-wrap">
               <div class="achievement-preview-card">
-                <img class="certificate-img" src="Screenshot_20260503_224844_Drive.jpg"
+                <img class="certificate-img" src="screenshot-drive-3.webp"
                   alt="HTML Training Certification" width="800" height="571" loading="lazy" decoding="async">
                 <div class="achievement-badge badge-iit">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -449,7 +1045,7 @@
                   <span>IIT Bombay Certified</span>
                 </div>
                 <button class="view-cert-modal-btn" type="button" aria-label="View Full Certificate: IIT Bombay HTML"
-                  data-src="Screenshot_20260503_224844_Drive.jpg">
+                  data-src="screenshot-drive-3.webp">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
                     stroke-linejoin="round">
                     <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" />
@@ -461,7 +1057,7 @@
 
             <div class="achievement-details-wrap">
               <div class="achievement-meta">
-                <span class="achievement-org">Spoken Tutorial, IIT Bombay × EduPyramids</span>
+                <span class="achievement-org">Spoken Tutorial, IIT Bombay &times; EduPyramids</span>
                 <span class="achievement-year">2025</span>
               </div>
               <h3 class="achievement-title">HTML Training Certification</h3>
@@ -486,7 +1082,7 @@
           <div class="achievement-slide" data-slide-index="3">
             <div class="achievement-preview-wrap">
               <div class="achievement-preview-card">
-                <img class="certificate-img" src="IMG_20250930_205229.jpg"
+                <img class="certificate-img" src="img-expert-talk.webp"
                   alt="Expert Talk on Ethical AI Development Certificate" width="800" height="571" loading="lazy"
                   decoding="async">
                 <div class="achievement-badge badge-ai">
@@ -498,7 +1094,7 @@
                   <span>AI Learning</span>
                 </div>
                 <button class="view-cert-modal-btn" type="button" aria-label="View Full Certificate: Ethical AI"
-                  data-src="IMG_20250930_205229.jpg">
+                  data-src="img-expert-talk.webp">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
                     stroke-linejoin="round">
                     <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" />
@@ -535,7 +1131,7 @@
           <div class="achievement-slide" data-slide-index="4">
             <div class="achievement-preview-wrap">
               <div class="achievement-preview-card">
-                <img class="certificate-img" src="Certificate-of-Participation.jpg"
+                <img class="certificate-img" src="cert-participation.webp"
                   alt="Samsung Solve for Tomorrow Certificate of Participation" width="800" height="571" loading="lazy"
                   decoding="async">
                 <div class="achievement-badge badge-innovation">
@@ -547,7 +1143,7 @@
                 </div>
                 <button class="view-cert-modal-btn" type="button"
                   aria-label="View Full Certificate: Samsung Solve for Tomorrow"
-                  data-src="Certificate-of-Participation.jpg">
+                  data-src="cert-participation.webp">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
                     stroke-linejoin="round">
                     <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" />
@@ -585,7 +1181,7 @@
           <div class="achievement-slide" data-slide-index="5">
             <div class="achievement-preview-wrap">
               <div class="achievement-preview-card">
-                <img class="certificate-img" src="TUSHAR-KUMAR-Participant-Certificate-1_260704_174025.jpg"
+                <img class="certificate-img" src="cert-postgre.webp"
                   alt="RDBMS PostgreSQL Training Certification" width="800" height="571" loading="lazy"
                   decoding="async">
                 <div class="achievement-badge badge-db">
@@ -599,7 +1195,7 @@
                 </div>
                 <button class="view-cert-modal-btn" type="button"
                   aria-label="View Full Certificate: IIT Bombay PostgreSQL"
-                  data-src="TUSHAR-KUMAR-Participant-Certificate-1_260704_174025.jpg">
+                  data-src="cert-postgre.webp">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
                     stroke-linejoin="round">
                     <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" />
@@ -611,7 +1207,7 @@
 
             <div class="achievement-details-wrap">
               <div class="achievement-meta">
-                <span class="achievement-org">Spoken Tutorial, IIT Bombay × EduPyramids</span>
+                <span class="achievement-org">Spoken Tutorial, IIT Bombay &times; EduPyramids</span>
                 <span class="achievement-year">2026</span>
               </div>
               <h3 class="achievement-title">RDBMS PostgreSQL Training Certification</h3>
@@ -769,28 +1365,36 @@
 
           <div class="about-highlights">
             <div class="highlight-card">
-              <span class="highlight-icon">🎓</span>
+              <span class="highlight-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z" /><path d="M22 10v6" /><path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5" /></svg>
+              </span>
               <div class="highlight-info">
                 <strong>BCA Student</strong>
                 <span>Silver Oak University</span>
               </div>
             </div>
             <div class="highlight-card">
-              <span class="highlight-icon">💻</span>
+              <span class="highlight-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 12h.01" /><path d="M16 6V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2" /><path d="M22 13a18.15 18.15 0 0 1-20 0" /><rect width="20" height="14" x="2" y="6" rx="2" /></svg>
+              </span>
               <div class="highlight-info">
                 <strong>12+ Projects</strong>
                 <span>Built &amp; Deployed</span>
               </div>
             </div>
             <div class="highlight-card">
-              <span class="highlight-icon">📜</span>
+              <span class="highlight-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15.477 12.89 1.515 8.526a.5.5 0 0 1-.81.47l-3.58-2.686a1 1 0 0 0-1.193 0l-3.58 2.686a.5.5 0 0 1-.81-.47l1.514-8.526" /><circle cx="12" cy="8" r="6" /></svg>
+              </span>
               <div class="highlight-info">
                 <strong>6+ Certifications</strong>
                 <span>IITB, Samsung, etc.</span>
               </div>
             </div>
             <div class="highlight-card">
-              <span class="highlight-icon">🚀</span>
+              <span class="highlight-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m18 16 4-4-4-4" /><path d="m6 8-4 4 4 4" /><path d="m14.5 4-5 16" /></svg>
+              </span>
               <div class="highlight-info">
                 <strong>Frontend Developer</strong>
                 <span>Specialized Creator</span>
@@ -861,7 +1465,9 @@
         <article class="project-card fun-fact-card" data-reveal>
           <div class="fun-fact-header">
             <div class="fun-fact-badge">
-              <span class="emoji">☕</span>
+              <span class="emoji">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display: block;"><path d="M12 18V5" /><path d="M15 13a4.17 4.17 0 0 1-3-4 4.17 4.17 0 0 1-3 4" /><path d="M17.598 6.5A3 3 0 1 0 12 5a3 3 0 1 0-5.598 1.5" /><path d="M17.997 5.125a4 4 0 0 1 2.526 5.77" /><path d="M18 18a4 4 0 0 0 2-7.464" /><path d="M19.967 17.483A4 4 0 1 1 12 18a4 4 0 1 1-7.967-.517" /><path d="M6 18a4 4 0 0 1-2-7.464" /><path d="M6.003 5.125a4 4 0 0 0-2.526 5.77" /></svg>
+              </span>
               <span>Learning Mindset</span>
             </div>
           </div>
@@ -875,7 +1481,9 @@
         <article class="project-card fun-fact-card" data-reveal>
           <div class="fun-fact-header">
             <div class="fun-fact-badge">
-              <span class="emoji">💡</span>
+              <span class="emoji">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display: block;"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.8 1.3 1.5 1.5 2.5" /><path d="M9 18h6" /><path d="M10 22h4" /></svg>
+              </span>
               <span>Problem Solving</span>
             </div>
           </div>
@@ -889,7 +1497,9 @@
         <article class="project-card fun-fact-card" data-reveal>
           <div class="fun-fact-header">
             <div class="fun-fact-badge">
-              <span class="emoji">🎯</span>
+              <span class="emoji">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display: block;"><circle cx="12" cy="12" r="10" /><circle cx="12" cy="12" r="6" /><circle cx="12" cy="12" r="2" /></svg>
+              </span>
               <span>Goal</span>
             </div>
           </div>
@@ -903,7 +1513,9 @@
         <article class="project-card fun-fact-card" data-reveal>
           <div class="fun-fact-header">
             <div class="fun-fact-badge">
-              <span class="emoji">🚀</span>
+              <span class="emoji">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display: block;"><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5" /><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09" /><path d="M9 12a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.4 22.4 0 0 1-4 2z" /><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 .05 5 .05" /></svg>
+              </span>
               <span>Motivation</span>
             </div>
           </div>
@@ -912,6 +1524,33 @@
             <p>Every project teaches something new, and every challenge helps me grow.</p>
           </div>
         </article>
+      </div>
+    </section>
+
+    <!-- Section: GitHub Activity -->
+    <section id="github-activity" class="section github-activity-section" data-reveal>
+      <div class="section-heading">
+        <p class="eyebrow">GitHub Activity</p>
+        <h2>Consistency is built one commit at a time.</h2>
+      </div>
+
+      <div class="github-card">
+        <div class="github-chart-container">
+          <img class="github-chart-img" src="https://ghchart.rshah.org/38bdf8/tusharsthrr"
+            alt="Tushar Kumar Suthar's GitHub Contributions Chart" width="828" height="128" loading="lazy" decoding="async">
+        </div>
+
+        <div class="github-card-footer">
+          <a class="button ghost small magnetic" href="https://github.com/tusharsthrr" target="_blank"
+            rel="noopener noreferrer" aria-label="View Tushar's GitHub Profile in a new tab">
+            <svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor"
+              style="width: 16px; height: 16px; margin-right: 8px; vertical-align: middle;">
+              <path
+                d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.17 6.839 9.49.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.464-1.11-1.464-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.579.688.481C19.137 20.167 22 16.418 22 12c0-5.523-4.477-10-10-10z" />
+            </svg>
+            View GitHub Profile
+          </a>
+        </div>
       </div>
     </section>
 
@@ -927,17 +1566,17 @@
 
           <label>
             <span>Name</span>
-            <input type="text" name="name" autocomplete="name" required>
+            <input type="text" name="name" autocomplete="name" aria-label="Your Name" required>
           </label>
 
           <label>
             <span>Email</span>
-            <input type="email" name="email" autocomplete="email" required>
+            <input type="email" name="email" autocomplete="email" aria-label="Your Email" required>
           </label>
 
           <label class="contact-form-full">
             <span>Message</span>
-            <textarea name="message" rows="5" required></textarea>
+            <textarea name="message" rows="5" aria-label="Your Message" required></textarea>
           </label>
 
           <button class="button primary magnetic" type="submit">Send Message</button>
@@ -1026,20 +1665,6 @@
         </div>
       </div>
     </section>
-
-    <!-- Section: My Philosophy -->
-    <section class="section quote-section" data-reveal>
-      <div class="quote-container">
-        <h2 class="philosophy-title">My Philosophy</h2>
-        <div class="philosophy-content">
-          <p class="philosophy-highlight">Progress, not perfection.</p>
-          <p class="philosophy-text">
-            I believe that consistent learning, continuous improvement, and building real-world projects matter more than chasing perfection.
-          </p>
-          <cite class="philosophy-signature">— Tushar Kumar Suthar</cite>
-        </div>
-      </div>
-    </section>
   </main>
 
   <footer class="site-footer">
@@ -1090,8 +1715,9 @@
     </div>
   </section>
 
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-  <script src="script.js?v=achievement_carousel_preloader"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js" defer></script>
+  <script src="script.min.js" defer></script>
 </body>
 
 </html>
+

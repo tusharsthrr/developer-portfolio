@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Page Not Found - Tushar Kumar Suthar Portfolio">
+  <title>404 - Page Not Found | Tushar Kumar Suthar</title>
+  
+  <link id="favicon" rel="icon" type="image/svg+xml" href="assets/logo/tushar-pfp.svg">
+  
+  <!-- DNS Prefetch and Preconnect for Google Fonts -->
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,600&family=Inter:wght@400&family=Sora:wght@600;800&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.min.css">
+
+  <style>
+    :root {
+      /* Re-declare core variables in case style.css loads late to prevent layout shift */
+      --bg: #030307;
+      --text: #f8fafc;
+      --muted: #94a3b8;
+      --accent: #38bdf8;
+      --line: rgba(255, 255, 255, 0.06);
+      --glass-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.45), inset 0 1px 1px 0 rgba(255, 255, 255, 0.08);
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* Background soft glow */
+    .glow-backdrop {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 450px;
+      height: 450px;
+      background: radial-gradient(circle, rgba(56, 189, 248, 0.12) 0%, rgba(167, 139, 250, 0.03) 50%, transparent 100%);
+      filter: blur(60px);
+      z-index: 0;
+      pointer-events: none;
+      animation: pulseGlow 8s ease-in-out infinite;
+    }
+
+    @keyframes pulseGlow {
+      0%, 100% {
+        opacity: 0.8;
+        transform: translate(-50%, -50%) scale(1);
+      }
+      50% {
+        opacity: 1.2;
+        transform: translate(-50%, -50%) scale(1.08);
+      }
+    }
+
+    /* Card Wrapper & Centered Layout */
+    .error-container {
+      position: relative;
+      z-index: 1;
+      padding: 24px;
+      width: 100%;
+      max-width: 520px;
+      box-sizing: border-box;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Glassmorphism Card */
+    .error-card {
+      background-color: rgba(18, 18, 29, 0.45);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 48px 32px;
+      text-align: center;
+      box-shadow: var(--glass-shadow);
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease, box-shadow 0.4s ease;
+      animation: floatCard 6s ease-in-out infinite;
+    }
+
+    .error-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(56, 189, 248, 0.25);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 0 0 30px rgba(56, 189, 248, 0.15), inset 0 1px 1px 0 rgba(255, 255, 255, 0.15);
+    }
+
+    @keyframes floatCard {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-8px);
+      }
+    }
+    
+    .error-card:hover {
+      animation-play-state: paused;
+    }
+
+    /* Card Content Styles */
+    .error-code {
+      font-family: 'Sora', sans-serif;
+      font-size: 96px;
+      font-weight: 800;
+      margin: 0;
+      line-height: 1;
+      background: linear-gradient(135deg, var(--text) 30%, var(--accent) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      letter-spacing: -2px;
+    }
+
+    .error-title {
+      font-family: 'Sora', sans-serif;
+      font-size: 28px;
+      font-weight: 600;
+      margin: 16px 0 8px;
+      color: var(--text);
+    }
+
+    .error-message {
+      font-size: 16px;
+      color: var(--muted);
+      margin: 0 0 24px;
+      line-height: 1.5;
+    }
+
+    .error-quote {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 22px;
+      font-weight: 600;
+      color: var(--accent);
+      margin: 24px 0;
+      position: relative;
+      display: inline-block;
+    }
+    
+    .error-quote::before,
+    .error-quote::after {
+      content: '"';
+    }
+
+    .error-instruction {
+      font-size: 14px;
+      color: var(--muted);
+      margin: 0 0 32px;
+    }
+
+    /* Back to Home Button (inherits styles, overrides sizing) */
+    .error-card .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-width: 180px;
+      text-decoration: none;
+      margin: 0 auto;
+    }
+
+    /* Mobile Responsive Optimizations */
+    @media (max-width: 480px) {
+      .error-card {
+        padding: 36px 20px;
+        border-radius: 20px;
+      }
+      .error-code {
+        font-size: 72px;
+      }
+      .error-title {
+        font-size: 22px;
+      }
+      .error-message {
+        font-size: 14px;
+      }
+      .error-quote {
+        font-size: 18px;
+      }
+      .error-instruction {
+        font-size: 13px;
+        margin: 0 0 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Soft Glow Backdrop -->
+  <div class="glow-backdrop" aria-hidden="true"></div>
+
+  <div class="error-container">
+    <main class="error-card">
+      <h1 class="error-code">404</h1>
+      <h2 class="error-title">Oops!</h2>
+      <p class="error-message">Looks like this page doesn't exist.</p>
+      
+      <p class="error-quote">Progress, not perfection.</p>
+      
+      <p class="error-instruction">Return to the portfolio using the button below.</p>
+      
+      <a href="index.html" class="button primary magnetic">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width: 18px; height: 18px;">
+          <polyline points="15 18 9 12 15 6"></polyline>
+        </svg>
+        Back to Home
+      </a>
+    </main>
+  </div>
+
+  <script>
+    // Minimal interaction script for hover lift and return navigation
+    document.addEventListener('DOMContentLoaded', () => {
+      const button = document.querySelector('.button');
+      if (button) {
+        button.addEventListener('click', (e) => {
+          button.style.transform = 'scale(0.96)';
+          setTimeout(() => {
+            button.style.transform = '';
+          }, 150);
+        });
+      }
+
+      // Tab visibility effects
+      const faviconLink = document.getElementById("favicon") || document.querySelector("link[rel*='icon']");
+      const defaultFaviconUrl = "assets/logo/tushar-pfp.svg";
+      let originalTitle = document.title;
+      let canvasEl = document.createElement("canvas");
+      canvasEl.width = 32;
+      canvasEl.height = 32;
+      let ctxEl = canvasEl.getContext("2d");
+      let logoImg = new Image();
+      logoImg.src = defaultFaviconUrl;
+
+      document.addEventListener("visibilitychange", () => {
+        if (document.hidden) {
+          originalTitle = document.title;
+          document.title = "Come Back | Tushar Kumar Suthar";
+          if (logoImg.complete && ctxEl) {
+            ctxEl.clearRect(0, 0, 32, 32);
+            ctxEl.save();
+            if ('filter' in ctxEl) {
+              ctxEl.filter = "drop-shadow(0px 0px 4px #38bdf8)";
+            } else {
+              ctxEl.shadowColor = "#38bdf8";
+              ctxEl.shadowBlur = 4;
+            }
+            ctxEl.drawImage(logoImg, 2, 2, 28, 28);
+            ctxEl.restore();
+            try {
+              faviconLink.href = canvasEl.toDataURL("image/png");
+            } catch (e) {}
+          }
+        } else {
+          document.title = originalTitle;
+          if (faviconLink) {
+            faviconLink.href = defaultFaviconUrl;
+          }
+        }
+      });
+    });
+  </script>
+</body>
+</html>

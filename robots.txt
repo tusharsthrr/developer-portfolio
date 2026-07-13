@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://tusharsthrr.github.io/developer-portfolio/sitemap.xml

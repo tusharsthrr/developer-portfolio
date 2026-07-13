@@ -89,13 +89,14 @@ function updateCursor() {
   dotPos.x += (mousePos.x - dotPos.x) * dotLerp;
   dotPos.y += (mousePos.y - dotPos.y) * dotLerp;
 
+  const isHovering = body.classList.contains("cursor-hovering");
   if (cursorRing) {
-    cursorRing.style.left = `${ringPos.x}px`;
-    cursorRing.style.top = `${ringPos.y}px`;
+    const scale = isHovering ? 1.555 : 1;
+    cursorRing.style.transform = `translate3d(${ringPos.x}px, ${ringPos.y}px, 0) translate(-50%, -50%) scale(${scale})`;
   }
   if (cursorDot) {
-    cursorDot.style.left = `${dotPos.x}px`;
-    cursorDot.style.top = `${dotPos.y}px`;
+    const scale = isHovering ? 0.5 : 1;
+    cursorDot.style.transform = `translate3d(${dotPos.x}px, ${dotPos.y}px, 0) translate(-50%, -50%) scale(${scale})`;
   }
 
   requestAnimationFrame(updateCursor);
@@ -140,6 +141,8 @@ function initCardGlows() {
 }
 let activeCertificateIndex = 0;
 let certificateInterval = null;
+let autoplayResumeTimeout = null;
+let isCertificateTransitioning = false;
 let isAchievementVisible = false;
 let isWindowLoaded = false;
 
@@ -147,6 +150,7 @@ let isWindowLoaded = false;
 let width = 0;
 let height = 0;
 let particles = [];
+let particlesActive = true;
 let floatingShapes = [];
 let mouse = { x: 0, y: 0, tx: 0, ty: 0, active: false };
 
@@ -241,6 +245,7 @@ function showCertificate(index, resetAutoplay = true) {
 
   // Transition old active slide to exiting state
   if (!isInitialLoad) {
+    isCertificateTransitioning = true;
     const prevSlide = achievementSlides[prevSlideIndex];
     prevSlide.classList.remove("is-active");
     prevSlide.classList.add("is-exiting");
@@ -251,7 +256,8 @@ function showCertificate(index, resetAutoplay = true) {
     prevSlide._exitTimeout = window.setTimeout(() => {
       prevSlide.classList.remove("is-exiting");
       prevSlide._exitTimeout = null;
-    }, 450);
+      isCertificateTransitioning = false;
+    }, 550); // Matches CSS transition duration
   }
 
   // Activate target slide
@@ -410,7 +416,8 @@ function initPreloader() {
     const maxProgress = isWindowLoaded ? 100 : 88;
 
     if (progress < maxProgress) {
-      const increment = Math.random() * 1.8 + 0.6;
+      // Accelerate progress completion immediately when window has loaded
+      const increment = isWindowLoaded ? (100 - progress) : (Math.random() * 1.8 + 0.6);
       progress = Math.min(progress + increment, maxProgress);
 
       if (progressPercent) {
@@ -433,7 +440,11 @@ function initPreloader() {
             loadingScreen.setAttribute("hidden", "");
             body.classList.remove("is-loading");
             body.classList.add("is-loaded");
-            setNavState();
+
+
+            // Stop favicon rotation animation and restore static favicon
+            isFaviconPageLoaded = true;
+            stopFaviconRotation();
 
             // Trigger hero stat counters explicitly on load after preloader vanishes
             document.querySelectorAll(".stats-grid [data-count]").forEach(counter => {
@@ -472,15 +483,15 @@ function resizeParticlesCanvas() {
     return;
   }
 
-  // Single lightweight particle system with 48 particles (range 40-60)
-  const count = 48;
+  // Single lightweight particle system with 30 particles
+  const count = 30;
   particles = Array.from({ length: count }, () => {
     const isPurple = Math.random() > 0.5;
     return {
       x: Math.random() * width,
       y: Math.random() * height,
-      vx: (Math.random() - 0.5) * 0.12,
-      vy: (Math.random() - 0.5) * 0.12,
+      vx: (Math.random() - 0.5) * 0.08,
+      vy: (Math.random() - 0.5) * 0.08,
       radius: Math.random() * 1.3 + 0.7,
       color: isPurple ? "167, 139, 250" : "56, 189, 248",
       opacity: Math.random() * 0.15 + 0.08
@@ -499,6 +510,13 @@ function animateParticles() {
 
   // Stop rendering completely if tab is inactive
   if (document.hidden) {
+    requestAnimationFrame(animateParticles);
+    return;
+  }
+
+  // Pause rendering completely if scrolled out of Hero & About sections
+  if (!particlesActive) {
+    ctx.clearRect(0, 0, width, height);
     requestAnimationFrame(animateParticles);
     return;
   }
@@ -540,7 +558,7 @@ function animateParticles() {
 
   // Render thin network connection lines
   ctx.lineWidth = 0.4;
-  const maxDist = 90;
+  const maxDist = 75;
 
   for (let i = 0; i < particles.length; i++) {
     for (let j = i + 1; j < particles.length; j++) {
@@ -562,19 +580,66 @@ function animateParticles() {
   requestAnimationFrame(animateParticles);
 }
 
-function setNavState() {
+function initNavObserver() {
   const sections = [...document.querySelectorAll("main section")];
-  let current = sections[0];
-
-  sections.forEach(section => {
-    if (section.getBoundingClientRect().top <= 170) {
-      current = section;
+  const navLinksMap = {};
+  navLinks.forEach(link => {
+    if (link.hash) {
+      navLinksMap[link.hash.slice(1)] = link;
     }
   });
 
-  navLinks.forEach(link => {
-    link.classList.toggle("is-active", current && link.hash === `#${current.id}`);
-  });
+  const observerOptions = {
+    root: null,
+    rootMargin: "-25% 0px -55% 0px",
+    threshold: 0
+  };
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.id;
+        navLinks.forEach(link => link.classList.remove("is-active"));
+        if (navLinksMap[id]) {
+          navLinksMap[id].classList.add("is-active");
+        }
+      }
+    });
+  }, observerOptions);
+
+  sections.forEach(section => observer.observe(section));
+}
+
+function initParticlesObserver() {
+  const hero = document.getElementById("home");
+  const about = document.getElementById("about");
+  if (!hero || !about) return;
+
+  const observerOptions = {
+    root: null,
+    threshold: 0
+  };
+
+  let heroVisible = true;
+  let aboutVisible = true;
+
+  function updateParticlesState() {
+    particlesActive = heroVisible || aboutVisible;
+  }
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.target === hero) {
+        heroVisible = entry.isIntersecting;
+      } else if (entry.target === about) {
+        aboutVisible = entry.isIntersecting;
+      }
+    });
+    updateParticlesState();
+  }, observerOptions);
+
+  observer.observe(hero);
+  observer.observe(about);
 }
 
 function updateHeaderVisibility() {
@@ -690,24 +755,43 @@ magneticItems.forEach(item => {
   });
 });
 
+// Carousel manual navigation helper to lock transitions and manage autoplay resume
+function triggerManualCertificateChange(direction) {
+  if (isCertificateTransitioning || !achievementSlides.length) return;
+
+  stopCertificateAutoplay();
+  if (autoplayResumeTimeout) {
+    window.clearTimeout(autoplayResumeTimeout);
+  }
+
+  showCertificate(activeCertificateIndex + direction, false);
+
+  autoplayResumeTimeout = window.setTimeout(() => {
+    startCertificateAutoplay();
+  }, 6000); // Resume autoplay after 6 seconds of inactivity
+}
+
 // Carousel manual navigation arrows
 prevArrow?.addEventListener("click", () => {
-  showCertificate(activeCertificateIndex - 1);
+  triggerManualCertificateChange(-1);
 });
 
 nextArrow?.addEventListener("click", () => {
-  showCertificate(activeCertificateIndex + 1);
+  triggerManualCertificateChange(1);
 });
 
 // Autoplay slide control on hover
 achievementCarousel?.addEventListener("mouseenter", stopCertificateAutoplay);
-achievementCarousel?.addEventListener("mouseleave", startCertificateAutoplay);
+achievementCarousel?.addEventListener("mouseleave", () => {
+  if (autoplayResumeTimeout) return; // Wait for manual resume if active
+  startCertificateAutoplay();
+});
 
 // Keyboard arrow navigation support
 achievementCarousel?.addEventListener("keydown", event => {
   if (event.key !== "ArrowLeft" && event.key !== "ArrowRight") return;
   event.preventDefault();
-  showCertificate(activeCertificateIndex + (event.key === "ArrowRight" ? 1 : -1));
+  triggerManualCertificateChange(event.key === "ArrowRight" ? 1 : -1);
 });
 
 // View Full Certificate modal handlers
@@ -733,9 +817,9 @@ achievementCarousel?.addEventListener("touchend", (e) => {
   touchEndX = e.changedTouches[0].screenX;
   const threshold = 55;
   if (touchStartX - touchEndX > threshold) {
-    showCertificate(activeCertificateIndex + 1); // swipe left (next)
+    triggerManualCertificateChange(1); // swipe left (next)
   } else if (touchEndX - touchStartX > threshold) {
-    showCertificate(activeCertificateIndex - 1); // swipe right (prev)
+    triggerManualCertificateChange(-1); // swipe right (prev)
   }
 }, { passive: true });
 
@@ -934,7 +1018,6 @@ window.addEventListener("resize", throttle(() => {
 }, 150));
 
 window.addEventListener("scroll", throttle(() => {
-  setNavState();
   updateHeaderVisibility();
 }, 24), { passive: true });
 
@@ -998,7 +1081,8 @@ initCursorInteractions();
 initCardGlows();
 showCertificate(0);
 
-setNavState();
+initNavObserver();
+initParticlesObserver();
 setTheme(localStorage.getItem("portfolio-theme") || "dark");
 // Upgraded role switcher animation (CSS grid handles width, JS handles interval/visibility)
 function initRoleSwitcher() {
@@ -1051,17 +1135,33 @@ function initTimelineProgress() {
   const progress = document.querySelector(".timeline-progress");
   if (!container || !progress) return;
 
-  function updateProgress() {
+  let containerTop = 0;
+  let containerHeight = 0;
+
+  function cacheDimensions() {
     const rect = container.getBoundingClientRect();
-    const triggerPoint = window.innerHeight * 0.6; // Trigger line is at 60% of viewport height
-    const totalHeight = rect.height;
-    const scrolledAmount = triggerPoint - rect.top;
+    const scrollTop = window.scrollY || document.documentElement.scrollTop;
+    containerTop = rect.top + scrollTop;
+    containerHeight = rect.height;
+  }
+
+  function updateProgress() {
+    const scrollTop = window.scrollY || document.documentElement.scrollTop;
+    const triggerPoint = scrollTop + window.innerHeight * 0.6; // Trigger line is at 60% of viewport height
+    const scrolledAmount = triggerPoint - containerTop;
     
-    let percent = (scrolledAmount / totalHeight) * 100;
+    let percent = (scrolledAmount / containerHeight) * 100;
     percent = Math.max(0, Math.min(100, percent));
     
     progress.style.height = `${percent}%`;
   }
+
+  // Cache dimensions initially
+  cacheDimensions();
+
+  // Re-cache dimensions on resize and load
+  window.addEventListener("resize", throttle(cacheDimensions, 150), { passive: true });
+  window.addEventListener("load", cacheDimensions, { passive: true });
 
   let ticking = false;
   window.addEventListener("scroll", () => {
@@ -1209,3 +1309,129 @@ initScrollProgress();
 
 initPreloader();
 
+// Premium Favicon Manager (Loader Rotation & Tab Glow Switch)
+let isFaviconPageLoaded = false;
+let rotationAngle = 0;
+let rotationInterval = null;
+let logoImg = null;
+let canvasEl = null;
+let ctxEl = null;
+const faviconLink = document.getElementById("favicon") || document.querySelector("link[rel*='icon']");
+const defaultFaviconUrl = "assets/logo/tushar-pfp.svg";
+
+function initFaviconManager() {
+  if (!faviconLink) return;
+
+  // Ensure default static favicon path
+  faviconLink.href = defaultFaviconUrl;
+
+  // Create offscreen canvas for dynamic favicon generation
+  canvasEl = document.createElement("canvas");
+  canvasEl.width = 32;
+  canvasEl.height = 32;
+  ctxEl = canvasEl.getContext("2d");
+
+  // Load the logo image
+  logoImg = new Image();
+  logoImg.onload = () => {
+    if (!isFaviconPageLoaded) {
+      startFaviconRotation();
+    }
+  };
+  logoImg.src = defaultFaviconUrl;
+
+  // Tab visibility changes
+  let originalTitle = document.title;
+  document.addEventListener("visibilitychange", () => {
+    if (document.hidden) {
+      originalTitle = document.title;
+      document.title = "Come Back | Tushar Kumar Suthar";
+      applyGlowFavicon();
+    } else {
+      document.title = originalTitle;
+      restoreStaticFavicon();
+    }
+  });
+}
+
+function startFaviconRotation() {
+  if (prefersReducedMotion) return;
+
+  // Run at 15 FPS (every ~66ms) to keep it extremely lightweight and performant
+  rotationInterval = setInterval(() => {
+    if (isFaviconPageLoaded) {
+      stopFaviconRotation();
+      return;
+    }
+    
+    rotationAngle = (rotationAngle + 10) % 360;
+    drawRotatedFavicon(rotationAngle);
+  }, 66);
+}
+
+function stopFaviconRotation() {
+  if (rotationInterval) {
+    clearInterval(rotationInterval);
+    rotationInterval = null;
+  }
+  restoreStaticFavicon();
+}
+
+function drawRotatedFavicon(angle) {
+  if (!logoImg || !ctxEl || !canvasEl) return;
+
+  ctxEl.clearRect(0, 0, 32, 32);
+  ctxEl.save();
+  ctxEl.translate(16, 16);
+  ctxEl.rotate((angle * Math.PI) / 180);
+  ctxEl.drawImage(logoImg, -16, -16, 32, 32);
+  ctxEl.restore();
+
+  try {
+    faviconLink.href = canvasEl.toDataURL("image/png");
+  } catch (e) {
+    // Cross-origin fallback
+  }
+}
+
+function applyGlowFavicon() {
+  if (!logoImg || !ctxEl || !canvasEl) return;
+
+  ctxEl.clearRect(0, 0, 32, 32);
+  ctxEl.save();
+  
+  if ('filter' in ctxEl) {
+    ctxEl.filter = "drop-shadow(0px 0px 4px #38bdf8)";
+  } else {
+    ctxEl.shadowColor = "#38bdf8";
+    ctxEl.shadowBlur = 4;
+    ctxEl.shadowOffsetX = 0;
+    ctxEl.shadowOffsetY = 0;
+  }
+
+  ctxEl.drawImage(logoImg, 2, 2, 28, 28);
+  ctxEl.restore();
+
+  try {
+    faviconLink.href = canvasEl.toDataURL("image/png");
+  } catch (e) {
+    // Fallback
+  }
+}
+
+function restoreStaticFavicon() {
+  if (faviconLink) {
+    faviconLink.href = defaultFaviconUrl;
+  }
+}
+
+initFaviconManager();
+
+// Register Service Worker for offline and cache support
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('./sw.js')
+      .then(reg => console.log('Service Worker registered successfully.', reg.scope))
+      .catch(err => console.error('Service Worker registration failed:', err));
+  });
+}
