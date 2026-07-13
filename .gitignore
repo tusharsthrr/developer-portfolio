@@ -1,0 +1,13 @@
+# Dependency directories
+node_modules/
+
+# Local environment variables
+.env
+
+# Netlify build and cache
+.netlify/
+
+# OS metadata files
+Thumbs.db
+Desktop.ini
+.DS_Store
