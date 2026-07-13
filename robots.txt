@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://tusharsthrr.github.io/developer-portfolio/sitemap.xml
+Sitemap: https://tusharsthrr.netlify.app/sitemap.xml
