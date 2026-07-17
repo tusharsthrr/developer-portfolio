@@ -1,9 +1,11 @@
-const CACHE_NAME = 'tushar-portfolio-cache-v7';
+const CACHE_NAME = 'tushar-portfolio-cache-v9';
 const ASSETS_TO_CACHE = [
   './',
   './index.html',
   './style.min.css',
   './script.min.js',
+  './chatbot.js',
+  './chatbot.min.js',
   './hero-pfp.webp',
   './screenshot-drive-1.webp',
   './screenshot-drive-2.webp',

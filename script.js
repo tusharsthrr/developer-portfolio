@@ -32,14 +32,7 @@ const counterLabel = document.querySelector(".carousel-counter");
 const certificateZoom = document.querySelector(".certificate-zoom");
 const certificateZoomBody = document.querySelector(".certificate-zoom-body");
 const certificateZoomClose = document.querySelector(".certificate-zoom-close");
-const aiChat = document.querySelector(".ai-chat");
-const aiChatToggle = document.querySelector(".ai-chat-toggle");
-const aiChatPanel = document.querySelector(".ai-chat-panel");
-const aiChatClose = document.querySelector(".ai-chat-close");
-const aiChatMessages = document.querySelector(".ai-chat-messages");
-const aiChatForm = document.querySelector(".ai-chat-form");
-const aiChatInput = aiChatForm?.querySelector("input");
-const aiChatPrompts = [...document.querySelectorAll("[data-chat-prompt]")];
+
 const canvas = document.getElementById("scene");
 const ctx = canvas?.getContext("2d");
 
@@ -291,77 +284,6 @@ function showCertificate(index, resetAutoplay = true) {
   }
 }
 
-function setAiChatOpen(isOpen) {
-  if (!aiChatPanel || !aiChatToggle) return;
-
-  aiChatPanel.hidden = !isOpen;
-  aiChatToggle.setAttribute("aria-expanded", String(isOpen));
-  aiChatToggle.setAttribute("aria-label", isOpen ? "Close AI chat" : "Open AI chat");
-
-  if (isOpen) {
-    window.setTimeout(() => aiChatInput?.focus(), 60);
-  }
-}
-
-function getAiReply(message) {
-  const text = message.toLowerCase();
-
-  if (text.includes("skill") || text.includes("tech") || text.includes("stack")) {
-    return "Tushar works with HTML, CSS, JavaScript, responsive UI, web development, website design, algorithms, and logic. He also has a strong visual side through CapCut and video editing.";
-  }
-
-  if (text.includes("project") || text.includes("work")) {
-    return "His portfolio highlights an animated portfolio UI, cinematic reel systems, transition edit work, and web projects focused on clean layouts, motion, and practical user experiences.";
-  }
-
-  if (text.includes("certificate") || text.includes("credential") || text.includes("achievement")) {
-    return "You can view Tushar's certificates in the Credentials section. Use the slider arrows or dots to see each certificate one by one.";
-  }
-
-  if (text.includes("contact") || text.includes("hire") || text.includes("email") || text.includes("message")) {
-    return "You can contact Tushar from the Contact section using the form. You can also reach him through Instagram, LinkedIn, X, or GitHub from the social links.";
-  }
-
-  if (text.includes("about") || text.includes("tushar") || text.includes("study") || text.includes("college")) {
-    return "Tushar Kumar Suthar is a BCA student building front-end interfaces, creative web experiences, and cinematic digital content while studying Computer Applications at Silver Oak University.";
-  }
-
-  return "I can help you explore Tushar's skills, projects, certificates, contact links, or learning journey. Try asking: What skills does Tushar have?";
-}
-
-function addAiMessage(text, sender = "bot") {
-  if (!aiChatMessages) return;
-
-  const message = document.createElement("div");
-  message.className = `ai-message ${sender}`;
-  message.textContent = text;
-  aiChatMessages.append(message);
-  aiChatMessages.scrollTop = aiChatMessages.scrollHeight;
-}
-
-function addTypingIndicator() {
-  if (!aiChatMessages) return null;
-
-  const indicator = document.createElement("div");
-  indicator.className = "ai-message bot typing";
-  indicator.setAttribute("aria-label", "AI assistant is typing");
-  indicator.innerHTML = "<span></span><span></span><span></span>";
-  aiChatMessages.append(indicator);
-  aiChatMessages.scrollTop = aiChatMessages.scrollHeight;
-  return indicator;
-}
-
-function sendAiMessage(text) {
-  const message = text.trim();
-  if (!message) return;
-
-  addAiMessage(message, "user");
-  const typingIndicator = addTypingIndicator();
-  window.setTimeout(() => {
-    typingIndicator?.remove();
-    addAiMessage(getAiReply(message));
-  }, 760);
-}
 
 function setTheme(mode) {
   const isLight = mode === "light";
@@ -823,31 +745,6 @@ achievementCarousel?.addEventListener("touchend", (e) => {
   }
 }, { passive: true });
 
-aiChatToggle?.addEventListener("click", () => {
-  setAiChatOpen(aiChatPanel?.hidden ?? true);
-});
-
-aiChatClose?.addEventListener("click", () => {
-  setAiChatOpen(false);
-});
-
-aiChatForm?.addEventListener("submit", event => {
-  event.preventDefault();
-
-  const message = aiChatInput?.value || "";
-  sendAiMessage(message);
-
-  if (aiChatInput) {
-    aiChatInput.value = "";
-  }
-});
-
-aiChatPrompts.forEach(prompt => {
-  prompt.addEventListener("click", () => {
-    sendAiMessage(prompt.dataset.chatPrompt || prompt.textContent || "");
-  });
-});
-
 themeToggle?.addEventListener("click", (event) => {
   const isLight = body.classList.contains("light-mode");
   const nextTheme = isLight ? "dark" : "light";
@@ -970,11 +867,6 @@ if (contactForm) {
 }
 
 
-document.addEventListener("click", event => {
-  if (!aiChat || aiChatPanel?.hidden || aiChat.contains(event.target)) return;
-
-  setAiChatOpen(false);
-});
 
 certificateZoomClose?.addEventListener("click", closeCertificateZoom);
 certificateZoom?.addEventListener("click", event => {
@@ -986,7 +878,6 @@ certificateZoom?.addEventListener("click", event => {
 window.addEventListener("keydown", event => {
   if (event.key === "Escape") {
     closeCertificateZoom();
-    setAiChatOpen(false);
   }
 });
 

@@ -1,0 +1,9 @@
+{
+  "name": "tushar-developer-portfolio",
+  "version": "1.0.0",
+  "description": "Modern static developer portfolio by Tushar Kumar Suthar",
+  "devDependencies": {
+    "terser": "^5.31.1"
+  },
+  "private": true
+}
